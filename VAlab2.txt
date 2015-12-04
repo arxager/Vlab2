@@ -1,0 +1,40 @@
+<html>
+<head/>
+<body>
+	<canvas id='less02' width='480' height='320'>
+		<script>
+			var canvas=document.getElementById('less02');
+			var ctx = canvas.getContext('2d');
+			var x,y;	
+					
+			function onClick() {
+				if (event.which == 1){
+					ctx.fillStyle='#000000';
+				} else if (event.which == 2) {
+					ctx.fillStyle='#FF0000';
+				}
+				x=event.x;
+				y=event.y;			
+				ctx.fillRect(x,y,5,5);	
+			}	
+			
+			for (i=0; i<canvas.height; i++) {
+				ctx.fillRect(0,i,1,1);
+				ctx.fillRect(canvas.width-1,i, 1, 1);
+			}
+			for (i=0; i<canvas.width; i++) {
+				ctx.fillRect(i,0,1,1);
+				ctx.fillRect(i,canvas.height-1,1,1);
+			}
+			for (j=1; j<canvas.width-1; j++){
+				for (i=1; i<canvas.height-1; i++) {
+					ctx.fillStyle='#FF0000';
+					ctx.fillRect(j,i,1,1);
+				
+				} 
+			}
+			canvas.addEventListener('click',onClick);
+		</script>
+	</canvas>
+</body>
+</html>
